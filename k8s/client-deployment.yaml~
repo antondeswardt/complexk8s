@@ -12,7 +12,7 @@ spec:
       labels:
         component: web
     spec:
-      container:
+      containers:
         - name: client
           image: antondeswardt/docker-complex-client:latest
           ports:
