@@ -13,10 +13,9 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
-    # next three lines also needed if using GCloud CLI in Cloud Console (browser)
-  - gcloud config set project complexk8s-267411
-  - gcloud config set compute/zone europe-west2-a
-  - gcloud container clusters get-credentials complexk8s-cluster
+  - gcloud config set project # TODO create cluster and update
+  - gcloud config set compute/zone europe-west2-a # TODO confirm
+  - gcloud container clusters get-credentials complex-cluster-small # TODO
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t antondeswardt/complexk8s-test -f ./client/Dockerfile.dev ./client
 
