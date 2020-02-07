@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: greenfigpig-com-tls
+spec:
+  secretName: greenfigpig-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: greenfigpig.com
+  dnsNames:
+    - greenfigpig.com
+    - www.greenfigpig.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - greenfigpig.com
+          - www.greenfigpig.com
